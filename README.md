@@ -6,9 +6,22 @@ an MCP server with plugin-based integrations for developer tools.
 
 ## Installation
 
+Enable and trust LeGambiArt tap:
+
 ```bash
 brew tap legambiart/birdbox
+brew trust legambiart/birdbox
+```
+
+Install `arapuca` sandbox:
+
+```bash
 brew install arapuca
+```
+
+Instal `wtmpc` core and plugins:
+
+```bash
 brew install wtmcp
 ```
 
@@ -30,16 +43,3 @@ Use the helper to update either formula from a tagged release:
 
 The helper downloads the release tarball, calculates its SHA256 checksum, and
 updates the matching formula.
-
-You might need to trust the tap:
-
-```bash
-brew trust legambiart/birdbox
-```
-
-Or you can trust individual formulae:
-
-```bash
-brew trust legambiart/birdbox/arapuca
-brew trust legambiart/birdbox/wtmcp
-```
