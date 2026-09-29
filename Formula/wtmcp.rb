@@ -7,9 +7,13 @@ class Wtmcp < Formula
   head "https://github.com/LeGambiArt/wtmcp.git", branch: "main"
 
   depends_on "go" => :build
+  depends_on "arapuca"
   depends_on "python@3"
 
   def install
+    system "git", "submodule", "update", "--init", "--recursive" if File.directory?(".git")
+    ENV.prepend_path "PKG_CONFIG_PATH", formula_opt_lib("arapuca")/"pkgconfig"
+
     version_str = if build.head?
       Utils.git_short_head
     else
