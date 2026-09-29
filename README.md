@@ -32,6 +32,17 @@ brew install --HEAD arapuca
 brew install --HEAD wtmcp
 ```
 
+## Updating from old taps
+
+If you installed older taps for wtmcp or arapuca, you'll need to untap them:
+
+```bash
+brew untap legambiart/arapuca
+brew untap legambiart/wtmcp
+```
+
+After untap success, proceed with normal installation of the formulae.
+
 ## Updating Formulae
 
 Use the helper to update either formula from a tagged release:
