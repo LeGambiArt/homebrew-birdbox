@@ -1,8 +1,8 @@
 class Arapuca < Formula
   desc "Cross-platform process sandbox with kernel-enforced isolation"
   homepage "https://github.com/LeGambiArt/arapuca"
-  url "https://github.com/LeGambiArt/arapuca/archive/refs/tags/v0.2.8.tar.gz"
-  sha256 "8a57224530389e125b07a6cb4cb996f9e7224d3a048e91da8f17fb93472445f0"
+  url "https://github.com/LeGambiArt/arapuca/archive/refs/tags/v0.2.9.tar.gz"
+  sha256 "fc6d47e08a3f3e89a0389fcfe6b10add94c3b39e212905d343bc4503cd92aab2"
   license "Apache-2.0"
   head "https://github.com/LeGambiArt/arapuca.git", branch: "main"
 
