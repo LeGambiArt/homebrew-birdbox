@@ -7,7 +7,8 @@ set -euo pipefail
 if [ "$#" -ne 2 ]; then
     echo "Usage: $0 <formula> <version>"
     echo "Example: $0 arapuca 0.2.9"
-    echo "Example: $0 wtmcp 0.1.8"
+    echo "Example: $0 wtmcp 0.1.9"
+    echo "Example: $0 arkai 0.8.0"
     exit 1
 fi
 
@@ -21,9 +22,12 @@ case "${FORMULA}" in
     wtmcp)
         REPOSITORY="wtmcp"
         ;;
+    arkai)
+        REPOSITORY="arkai"
+        ;;
     *)
         echo "Error: Unsupported formula: ${FORMULA}"
-        echo "Supported formulas: arapuca, wtmcp"
+        echo "Supported formulas: arapuca, wtmcp, arkai"
         exit 1
         ;;
 esac
@@ -52,8 +56,8 @@ if [ ! -f "${FORMULA_FILE}" ]; then
 fi
 
 sed -i.bak \
-    -e "s|url \".*\"|url \"${TARBALL_URL}\"|" \
-    -e "s|sha256 \".*\"|sha256 \"${SHA256}\"|" \
+    -e "s|^  url \".*\"|  url \"${TARBALL_URL}\"|" \
+    -e "s|^  sha256 \".*\"|  sha256 \"${SHA256}\"|" \
     "${FORMULA_FILE}"
 rm -f "${FORMULA_FILE}.bak"
 
