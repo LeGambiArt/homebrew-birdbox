@@ -19,7 +19,7 @@ class Arkai < Formula
   depends_on "arapuca"
   depends_on "libyaml"
   depends_on :macos if build.with?("mlx")
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "wtmcp"
 
   on_macos do
@@ -83,8 +83,8 @@ class Arkai < Formula
     on_macos do
       on_arm do
         resource "numpy-wheel" do
-          url "https://files.pythonhosted.org/packages/d5/b2/c6ce165acffceb15a82c07b9cc77d391f86b3f379ba62911908ae5d34b91/numpy-2.5.4-cp314-cp314-macosx_14_0_arm64.whl"
-          sha256 "956555e0603a4d38019ae6925711cb9dc43195c076a928accf7ea5d50bddfe53"
+          url "https://files.pythonhosted.org/packages/47/c0/d0b335a499a04b65f532c3f034346ef390f81299060f928492dabc1e0272/numpy-2.5.4-cp315-cp315-macosx_14_0_arm64.whl"
+          sha256 "0b4724a19de67bea8cfc4970798efa78bcbbe2ac2613cfac16721a42d44de2a5"
         end
       end
     end
@@ -92,41 +92,37 @@ class Arkai < Formula
     on_linux do
       on_arm do
         resource "numpy-wheel" do
-          url "https://files.pythonhosted.org/packages/63/d6/34b0a2b0741386a63025a65a2c09caaaaaad6d0ca95b66cd65c30dd7fcb5/numpy-2.5.4-cp314-cp314-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl"
-          sha256 "4054173604cd8658796053f1f3bc0befb68ec1c0762c57fdad61e199256a8617"
+          url "https://files.pythonhosted.org/packages/b3/02/5dad269b02166965a7b4ca14adaddd75dbee0de42435bfecf561b84ba5a6/numpy-2.5.4-cp315-cp315-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl"
+          sha256 "325518d4245b9e331387702aa58c2ce1dc4cdcbb41dfb4ccd5dcbc7e08db1266"
         end
       end
 
       on_intel do
         resource "numpy-wheel" do
-          url "https://files.pythonhosted.org/packages/16/d5/928078d2b28f26829b138b4a6c3980045022fb409f570657a224ae60ef4e/numpy-2.5.4-cp314-cp314-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl"
-          sha256 "d549420b8858885cea8838a727842249218b9c1da24dd517e25c9c7a948310a3"
+          url "https://files.pythonhosted.org/packages/93/3a/01360c8036822ed9f7aa32189a77d1476567ec1e8e1383522389e4faac45/numpy-2.5.4-cp315-cp315-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl"
+          sha256 "56733449d2544178beaa4545cee357370440cf056c197f9c7bfb19dbfdd0e86d"
         end
       end
     end
   end
 
   if build.with?("rag")
+    # Arkai's RAG extra doesn't request ONNX Runtime, which has no CPython 3.15 wheel.
     on_macos do
       on_arm do
         resource "torch-wheel" do
-          url "https://files.pythonhosted.org/packages/ee/90/1241e7db5ccc2455f8735bd6b1becfad39916206ad18001c4c0014d139e2/torch-2.14.0-cp314-cp314-macosx_14_0_arm64.whl"
-          sha256 "860423e970f2ce02c4476e8e2d1350131b1c5c5a5e4912180e78b50b53241efa"
-        end
-
-        resource "onnxruntime-wheel" do
-          url "https://files.pythonhosted.org/packages/d7/55/b511099a435972b86b5d04ef374cdca8de920311cc979180029b80145bf5/onnxruntime-1.31.1-cp314-cp314-macosx_14_0_arm64.whl"
-          sha256 "8536ac43682caa7492c46d6cfd4c3c8db288dcf0619508431a22170b670ee1d0"
+          url "https://files.pythonhosted.org/packages/99/34/c7ff06165cb09238e945aa2ae63b9186583a47a9880aacd349d37e521f08/torch-2.15.0-cp315-cp315-macosx_14_0_arm64.whl"
+          sha256 "06a686eb717cd3d1662363082820be45497318887c596d691af0af0c7649c8f0"
         end
 
         resource "scipy-wheel" do
-          url "https://files.pythonhosted.org/packages/70/e8/6b0c288c50942d78193696c9f15f9a0874f5178aa0ddf40f83d9924b3e8d/scipy-1.18.1-cp314-cp314-macosx_14_0_arm64.whl"
-          sha256 "011413b7426b75012840e35649e00fe0a2c3bae89fed433876e3a99251572efc"
+          url "https://files.pythonhosted.org/packages/a4/19/68f1c50f609d955d230e66d25d02bd3e1e167ec540232135354fb9a4b9e3/scipy-1.18.1-cp315-cp315-macosx_14_0_arm64.whl"
+          sha256 "1bca3b943fc2567ea49cd02c99abde49da4d5178ec46f624bd8255cda8755beb"
         end
 
         resource "scikit-learn-wheel" do
-          url "https://files.pythonhosted.org/packages/9b/ed/d68115577c8b42b0442ebd8180945d4008880a33176094640e00b585128e/scikit_learn-1.9.1-cp314-cp314-macosx_12_0_arm64.whl"
-          sha256 "8893bc6331f60f18d4ac75e12ed356e2dcf6a564bf767918b5b7ca54c8c8be49"
+          url "https://files.pythonhosted.org/packages/64/c9/cc93e8a7fe204e43d70e96e5eb89871643be20025eea05eb4fdaf19afe39/scikit_learn-1.9.1-cp315-cp315-macosx_12_0_arm64.whl"
+          sha256 "e1b468241f4a7a9a7a0d6479ad3cc47681cc151a4046c530f2777c3d68f08942"
         end
 
         resource "pymupdf-wheel" do
@@ -139,24 +135,19 @@ class Arkai < Formula
     on_linux do
       on_arm do
         resource "torch-wheel" do
-          url "https://download-r2.pytorch.org/whl/cpu/torch-2.14.0%2Bcpu-cp314-cp314-manylinux_2_28_aarch64.whl"
-          version "2.14.0"
-          sha256 "27b34640fea7268862961b734c723873e15b1c2657b1eb84bcfac053e5841527"
-        end
-
-        resource "onnxruntime-wheel" do
-          url "https://files.pythonhosted.org/packages/06/ef/98f0060d6cf58f9f663268fef65fe729120b8fbe26ef35eaa2c8d9030d33/onnxruntime-1.31.1-cp314-cp314-manylinux_2_28_aarch64.whl"
-          sha256 "c878686b75cade1ed59131aa018ab004b1e64368b0d54041912450b9642cf04f"
+          url "https://download-r2.pytorch.org/whl/cpu/torch-2.15.0%2Bcpu-cp315-cp315-manylinux_2_28_aarch64.whl"
+          version "2.15.0"
+          sha256 "2cec97b29524b3352bb794321976da7cef2ecee171866499c5630c865396c0a2"
         end
 
         resource "scipy-wheel" do
-          url "https://files.pythonhosted.org/packages/0b/56/030af62bea3cf878e0028515dff78c123b01633606a879b63f42d2db99cc/scipy-1.18.1-cp314-cp314-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl"
-          sha256 "2d3ab0e8c69a17dd3559eab8cbb88f258e285c94d572c2719033f90f83290c89"
+          url "https://files.pythonhosted.org/packages/b7/db/30992f9b51a63de671daf3888ffd18378b6cb9ec9f2c972264238ffa7fd6/scipy-1.18.1-cp315-cp315-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl"
+          sha256 "82f201b4c878551d48558337aab270d3c6cca5507b8737c8d8a608d234cccde0"
         end
 
         resource "scikit-learn-wheel" do
-          url "https://files.pythonhosted.org/packages/c4/6c/06c7eb61a438e389cbf3f7210897069bec5a883dbe03c189ae792781e11a/scikit_learn-1.9.1-cp314-cp314-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl"
-          sha256 "b5492cf2df5226691c32611de8734bcf42148c6547ae53c7f4e6b847793addc0"
+          url "https://files.pythonhosted.org/packages/a2/61/0c6080f0d356fb966053009e7f25e9bff6cf74b0b16195ccf0c3757d1ae8/scikit_learn-1.9.1-cp315-cp315-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl"
+          sha256 "8ca869d0080a5723cde2d5a8b54a2da1ff7e68735a9e9adb3da1243183a0fa01"
         end
 
         resource "pymupdf-wheel" do
@@ -167,24 +158,19 @@ class Arkai < Formula
 
       on_intel do
         resource "torch-wheel" do
-          url "https://download-r2.pytorch.org/whl/cpu/torch-2.14.0%2Bcpu-cp314-cp314-manylinux_2_28_x86_64.whl"
-          version "2.14.0"
-          sha256 "f152f41dc5dc462afe0de780e451ebb47ea8b4451f8f919f9537aa8e2cbe1d7e"
-        end
-
-        resource "onnxruntime-wheel" do
-          url "https://files.pythonhosted.org/packages/aa/74/a891a659ccc427469de0d7bdbd5ff770a35f73084ee590ce02456cf61f7f/onnxruntime-1.31.1-cp314-cp314-manylinux_2_28_x86_64.whl"
-          sha256 "c20d7f15d84427db070b163f78c2c7146cc93edd6113fa7327671259a24184fe"
+          url "https://download-r2.pytorch.org/whl/cpu/torch-2.15.0%2Bcpu-cp315-cp315-manylinux_2_28_x86_64.whl"
+          version "2.15.0"
+          sha256 "3552930ba3d358d3ff0b6fee19cb296e199767443c0c86be2a715471036d9233"
         end
 
         resource "scipy-wheel" do
-          url "https://files.pythonhosted.org/packages/6b/89/2a844506d49651e9aa1af6ef95b6bd8031cb1d5a4375edec6155037e04cf/scipy-1.18.1-cp314-cp314-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl"
-          sha256 "ac0333bdf38309aa3dcbe7e3fa7ea29e7a2c37c6ea306a757b700ded8e4596ad"
+          url "https://files.pythonhosted.org/packages/91/d4/bf3e735dc0b9d5a8ff45079d2540e17d3aff7a2f0048dd8f552ffd031d2b/scipy-1.18.1-cp315-cp315-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl"
+          sha256 "0ac49ea97594532dd44b7136094d35f5440fa06e6d9c6384a74c01764df388c5"
         end
 
         resource "scikit-learn-wheel" do
-          url "https://files.pythonhosted.org/packages/86/4e/0bab75490ca4b85fad8388739c7ebc71d9db553f8c69e39943ee8db0aaae/scikit_learn-1.9.1-cp314-cp314-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl"
-          sha256 "993d332ff80e62efae9e39603b7e872297c418d780f01a01855269a3489c950f"
+          url "https://files.pythonhosted.org/packages/47/bb/98a31f10fffbd39edcc2f8bf4119b29652248bb110b7d45c84e68aa293ab/scikit_learn-1.9.1-cp315-cp315-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl"
+          sha256 "6754b7cabfc3df0b1f7b38f7a344f559bbae9d82f0ac5e3d48cccbd19fdcefdf"
         end
 
         resource "pymupdf-wheel" do
@@ -199,8 +185,8 @@ class Arkai < Formula
     on_macos do
       on_arm do
         resource "mlx-wheel" do
-          url "https://files.pythonhosted.org/packages/99/2f/ed874a2de4ad30b47f27960373880aa24b53d8963ea81125e12e460340c2/mlx-0.32.4-cp314-cp314-macosx_14_0_arm64.whl"
-          sha256 "f1e6ef441e1e2ce54159022a8fa5597f8ea4f7acf278752049c4f774bbd0501d"
+          url "https://files.pythonhosted.org/packages/74/d7/6abf128b1740d8be1d711d8ded6ccd4714c53d8af8b6267ac6aae285c60e/mlx-0.32.4-cp315-cp315-macosx_14_0_arm64.whl"
+          sha256 "4f8e640fd3afcc19da343c5a769743f361573b8db98cd739e295a387921486a5"
         end
 
         resource "mlx-metal-wheel" do
@@ -209,8 +195,8 @@ class Arkai < Formula
         end
 
         resource "sentencepiece-wheel" do
-          url "https://files.pythonhosted.org/packages/a7/5b/267e83f3990d0ef941141cb1bb9d0ed4c595623bb07ee5d78ee78aa05ee4/sentencepiece-0.2.3-cp314-cp314-macosx_11_0_arm64.whl"
-          sha256 "ba4dfdbb2972e42d01ad32fe03788717e94d92830f981b7895835e65bfe92b2c"
+          url "https://files.pythonhosted.org/packages/c7/f8/02dc219a545896743edbb0bc60dd7e48fbb1cc96d9299a870b5fca0014ea/sentencepiece-0.2.3-cp315-cp315-macosx_11_0_arm64.whl"
+          sha256 "0ef20da5e56faff98bfcd1eb78c9abedc10253035051ab34e0c4be22734390ef"
         end
       end
     end
@@ -246,12 +232,11 @@ class Arkai < Formula
       odie "The RAG extra requires glibc 2.28 or newer for its Python wheels."
     end
 
-    venv = virtualenv_create(libexec, "python3.14")
+    venv = virtualenv_create(libexec, "python3.15")
     wheel_resources = %w[
       mlx-wheel
       mlx-metal-wheel
       numpy-wheel
-      onnxruntime-wheel
       pymupdf-wheel
       scikit-learn-wheel
       scipy-wheel
@@ -262,7 +247,7 @@ class Arkai < Formula
 
     install_wheel venv, "numpy-wheel" if build.with?("rag") || build.with?("mlx")
     if build.with?("rag")
-      %w[scipy-wheel scikit-learn-wheel pymupdf-wheel torch-wheel onnxruntime-wheel].each do |name|
+      %w[scipy-wheel scikit-learn-wheel pymupdf-wheel torch-wheel].each do |name|
         install_wheel venv, name
       end
     end
