@@ -5,8 +5,8 @@ class Arkai < Formula
 
   desc "CLI for orchestrating coding agents with local or cloud inference"
   homepage "https://github.com/LeGambiArt/arkai"
-  url "https://github.com/LeGambiArt/arkai/archive/refs/tags/v0.9.0.tar.gz"
-  sha256 "a06409c927d7aba1a7c919ac1dbf36ca8a0c52364e348ff6b2b998e49f91214f"
+  url "https://github.com/LeGambiArt/arkai/archive/refs/tags/v0.10.0.tar.gz"
+  sha256 "b7a777d5a75d914136fde6ea1cc76069396f363e193b80d060c642df0acf18c6"
   license "Apache-2.0"
   head "https://github.com/LeGambiArt/arkai.git", branch: "main"
 
